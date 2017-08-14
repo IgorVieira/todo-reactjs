@@ -1,1 +1,0 @@
-"use strict";Object.defineProperty(exports, "__esModule", { value: true });const partial = exports.partial = (fn, ...args) => fn.bind(null, ...args);
