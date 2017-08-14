@@ -1,0 +1,9 @@
+'use strict';var _utils = require('./utils');
+
+const add = (a, b) => a + b;
+
+test('partial applies the first argument ahead of time', () => {
+  const inc = (0, _utils.partial)(add, 1);
+  const result = inc(2);
+  expect(result).toBe(3);
+});

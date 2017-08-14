@@ -1,0 +1,16 @@
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });const addTodo = exports.addTodo = (list, item) => [...list, item];
+
+const generateId = exports.generateId = () => Math.floor(Math.random() * 1000);
+
+const findById = exports.findById = (id, list) => list.find(item => item.id === id);
+
+const toggleTodo = exports.toggleTodo = todo => Object.assign({}, todo, { isComplete: !todo.isComplete });
+
+const updateTodo = exports.updateTodo = (list, updated) => {
+    const updateIndex = list.findIndex(item => item.id === updated.id);
+    return [
+    ...list.slice(0, updateIndex),
+    updated,
+    ...list.slice(updateIndex + 1)];
+
+};
