@@ -3,6 +3,7 @@ node_js:
 - 6.9.2
 notifications:
 - igor.p.r.vieira@gmail.com
+dist: trusty
 env:
   global:
   - NODE_ENV: test
