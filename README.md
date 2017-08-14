@@ -1,5 +1,6 @@
 # To-do-list ReactJS
 
+[![Build Status](https://travis-ci.org/IgorVieira/todo-reactjs.svg?branch=master)](https://travis-ci.org/IgorVieira/todo-reactjs)
 
 Todo for test new features ECMA, and build something with 
 create-react-app, 
