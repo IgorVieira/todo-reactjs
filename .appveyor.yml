@@ -1,0 +1,8 @@
+enviroment
+  nodejs_version: "8"
+
+install
+  - npm install
+
+test_script
+  - npm test
