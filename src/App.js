@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import {TodoForm, TodoList} from './components/todo';
 import {addTodo, generateId, findById, toggleTodo, updateTodo} from './lib/todoHelpers.js';
-
+import {pipe, partial} from './lib/utils'
 
 class App extends Component {
   
@@ -22,10 +22,9 @@ class App extends Component {
     })
   }
 
-  handleToggle = (id) =>{
-    const todo = findById(id, this.state.todos)
-    const toggled  = toggleTodo(todo)
-    const updateTodos = updateTodo(this.state.todos, toggled)
+  handleToggle = (id) => {
+    const getUpdateTodos = pipe(findById, toggleTodo, partial(updateTodo, this.state.todos))
+    const updateTodos = getUpdateTodos
     this.setState({todos:updateTodos})
   }
 
