@@ -17,7 +17,7 @@ create-react-app,
 
 Server application:
 ```
-  json-server -p 8080 --watch db.json
+  sh main.sh
 ```
 
 Client application:
