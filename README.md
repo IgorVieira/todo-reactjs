@@ -10,14 +10,22 @@ create-react-app,
  - Yarn 
  - NPM
  - Nodejs
+ - [JSON-Serve](https://www.npmjs.com/package/json-server)
 
 ## Usage
 
+Server application:
+```
+  json-server -p 8080 --watch db.json
+```
+
+Client application:
 ```
  yarn install && yarn start
 ```
 
 Avaible in:`http:localhost:3000`
+
 
 ## Tests
 
