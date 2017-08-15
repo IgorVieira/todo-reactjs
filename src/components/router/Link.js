@@ -1,4 +1,5 @@
 import React,  { Component } from 'react'
+import PropTypes from 'prop-types'
 
 export class Link extends Component{
     /*eslint no-restricted-globals: ["error", "event"]*/
@@ -11,4 +12,8 @@ export class Link extends Component{
     render() {
         return <a onClick={this.handleClick}>{this.props.children}</a>
     }
+}
+
+Link.propTypes = {
+    to: PropTypes.string.isRequired
 }
