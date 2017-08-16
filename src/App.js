@@ -10,7 +10,7 @@ import {
          filterTodos
        } from './lib/todoHelpers.js';
 import {pipe, partial} from './lib/utils'
-import {loadTodos, createTodo, saveTodo} from './lib/todoService'
+import {loadTodos, createTodo, saveTodo, destroyTodo} from './lib/todoService'
 class App extends Component {
   
   state = {
@@ -34,7 +34,8 @@ class App extends Component {
     const updatedTodos = removeTodo(this.state.todos, id)
     this.setState({todos:updatedTodos})
 
-    
+    destroyTodo(id)
+      .then(() => this.showTempMessage('Todo Removed'))
   }
 
   handleInputChange = (evt) => {
