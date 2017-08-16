@@ -58,6 +58,10 @@ li:hover span.delete-item {
   visibility: visible;
 }
 
+.success {
+  color: green;
+}
+
 .error {
   color: red;
 }
