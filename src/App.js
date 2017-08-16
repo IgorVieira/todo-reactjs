@@ -10,7 +10,7 @@ import {
          filterTodos
        } from './lib/todoHelpers.js';
 import {pipe, partial} from './lib/utils'
-import {loadTodos, createTodo} from './lib/todoService'
+import {loadTodos, createTodo, saveTodo} from './lib/todoService'
 class App extends Component {
   
   state = {
@@ -33,6 +33,8 @@ class App extends Component {
 
     const updatedTodos = removeTodo(this.state.todos, id)
     this.setState({todos:updatedTodos})
+
+    
   }
 
   handleInputChange = (evt) => {
@@ -42,9 +44,15 @@ class App extends Component {
   }
 
   handleToggle = (id) => {
-    const getUpdateTodos = pipe(findById, toggleTodo, partial(updateTodo, this.state.todos))
-    const updateTodos = getUpdateTodos
+    const getToggleTodo = pipe(findById, toggleTodo)
+    const updated = getToggleTodo(id, this.state.todos)
+    const getUpdateTodos = partial(updateTodo, this.state.todos)
+    const updateTodos = getUpdateTodos(updated)
     this.setState({todos:updateTodos})
+
+
+    saveTodo(updated)
+      .then(() => this.showTempMessage('Todo Updated'))
   }
 
   handleSubmit = (evt) => {
